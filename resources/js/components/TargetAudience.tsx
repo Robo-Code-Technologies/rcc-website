@@ -23,7 +23,7 @@ export function TargetAudience() {
             </motion.p>
 
             <motion.div className="mt-16 flex w-full gap-20 px-48">
-                <motion.div className="flex aspect-[3/4] w-full flex-col items-center rounded-lg border border-blue-950/20 p-8">
+                <motion.div className="min-w-64 flex aspect-[3/4] w-full flex-col items-center rounded-lg border border-blue-950/20 p-8">
                     <motion.img className="h-32" src={School} />
                     <motion.p className="text-2xl font-semibold text-blue-950">
                         Schools
@@ -33,7 +33,7 @@ export function TargetAudience() {
                         programs aligned with STEM goals.
                     </motion.p>
                 </motion.div>
-                <motion.div className="flex aspect-[3/4] w-full flex-col items-center rounded-lg border border-blue-950/20 p-8">
+                <motion.div className="min-w-64 flex aspect-[3/4] w-full flex-col items-center rounded-lg border border-blue-950/20 p-8">
                     <motion.img className="h-32" src={TutorCenter} />
                     <motion.p className="text-2xl font-semibold text-blue-950">
                         Tutor Center
@@ -43,7 +43,7 @@ export function TargetAudience() {
                         guided lessons that is exciting for every student.
                     </motion.p>
                 </motion.div>
-                <motion.div className="flex aspect-[3/4] w-full flex-col items-center rounded-lg border border-blue-950/20 p-8">
+                <motion.div className="min-w-64 flex aspect-[3/4] w-full flex-col items-center rounded-lg border border-blue-950/20 p-8">
                     <motion.img className="h-32" src={Parents} />
                     <motion.p className="text-2xl font-semibold text-blue-950">
                         Parents
