@@ -1,12 +1,11 @@
 import { motion } from 'framer-motion';
 import { FeatureCard } from './FeatureCard';
-import { ProgramCard } from './ProgramCard';
 import { featuresData } from '../data/features';
-import { programsData } from '../data/programs';
 
 import BottomBackgroundBlob from '../assets/bottom_blob_bg.svg';
 import BottomForegroundBlob from '../assets/bottom_blob_fg.svg';
 import BottomSubForegroundBlob from '../assets/bottom_blob_fg_sub.svg';
+import RobotArm from '../assets/robot_arm.svg';
 
 const blobAnimationVariants = {
     background: {
@@ -46,7 +45,7 @@ const blobTransitions = {
     }
 };
 
-export function BottomSection() {
+export function SubHero() {
     return (
         <motion.div className="relative -bottom-0 min-h-screen overflow-visible bg-blue-950 pt-16">
             {/* Bottom Blob Animations */}
@@ -82,19 +81,37 @@ export function BottomSection() {
                 {/* Features Section */}
                 <motion.div className="flex flex-col lg:flex-row w-full gap-8 lg:gap-24">
                     <motion.div className="w-full lg:w-1/2">
+                        <motion.img className='mx-auto' src={RobotArm} /> 
+                    </motion.div>
+                    <motion.div className="w-full lg:w-1/2">
+                        <motion.h1 className='text-blue-950 font-bold text-5xl tracking-wide leading-tight' style={{ fontFamily: 'Fredoka' }}>
+                            AI and Robotics are <br />
+                            reshaping the world.
+                        </motion.h1> 
+                        <motion.h2 className='text-red-500 text-3xl font-semibold my-3' style={{ fontFamily: 'Fredoka' }}>
+                            Is your child ready for the future?
+                        </motion.h2>
+                        <motion.p className='text-gray-500 text-lg max-w-[540px]'>
+                            AI and robotics are transforming the world—but most kids aren’t learning the skills to keep up. <span className='font-extrabold'>Robo Code Club</span> bridges that gap through fun, hands-on learning in coding and robotics, helping children not just adapt to the future, <span className='font-extrabold'>but build it</span>.
+                        </motion.p>
+                    </motion.div>
+                </motion.div>
+
+                <hr className='my-20 border-none bg-gray-200 h-[1px]' />
+
+                {/* Features Section */}
+                <motion.div className="flex flex-col lg:flex-row w-full gap-8 lg:gap-24">
+                    <motion.div className="w-full lg:w-1/2">
                         <motion.p
-                            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight font-bold text-blue-950"
+                            className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight font-bold text-blue-950"
                             style={{ fontFamily: 'Fredoka' }}
                         >
-                            We keep learning
-                            <br />
-                            Fun and Enjoyable
+                            Every student<br />
+                            becomes <span className='text-red-500'>a creator</span><br />
+                            not just a learner.
                         </motion.p>
-                        <motion.p className="mt-4 lg:mt-6 text-blue-950 text-sm sm:text-base">
-                            At Robo Code Club, we make robotics and coding
-                            fun, practical, and accessible for students.
-                            Through hands-on activities, projects, and
-                            challenges, we teach learners how to:
+                        <motion.p className="text-lg text-gray-400 leading-relaxed mt-4 max-w-[400px]">
+                            We spark curiosity and turn it into skills that inspire innovation and problem-solving.
                         </motion.p>
                     </motion.div>
                     <motion.div className="w-full lg:w-1/2">
@@ -114,7 +131,7 @@ export function BottomSection() {
                 </motion.div>
 
                 {/* Programs Section */}
-                <motion.div className="mt-8 sm:mt-12 md:mt-16 flex w-full flex-col items-center justify-center">
+                {/* <motion.div className="mt-8 sm:mt-12 md:mt-16 flex w-full flex-col items-center justify-center">
                     <motion.p className="rounded-full bg-red-100 px-3 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm text-red-700">
                         PROGRAMS
                     </motion.p>
@@ -139,7 +156,7 @@ export function BottomSection() {
                             />
                         ))}
                     </motion.div>
-                </motion.div>
+                </motion.div> */}
             </motion.div>
         </motion.div>
     );
