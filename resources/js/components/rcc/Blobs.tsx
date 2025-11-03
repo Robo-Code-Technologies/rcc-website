@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
 
-import Blob1 from '../assets/blob_1.svg';
-import Blob2 from '../assets/blob_2.svg';
-import Blob3 from '../assets/blob_3.svg';
-import Blob4 from '../assets/blob_4.svg';
-import LeftBackgroundBlob from '../assets/left_blob_bg.svg';
-import LeftForegroundBlob from '../assets/left_blog_fg.svg';
-import RightBackgroundBlob from '../assets/right_blob_bg.svg';
-import RightForegroundBlob from '../assets/right_blob_fg.svg';
+import Blob1 from '../../assets/blob_1.svg';
+import Blob2 from '../../assets/blob_2.svg';
+import Blob3 from '../../assets/blob_3.svg';
+import Blob4 from '../../assets/blob_4.svg';
+import LeftBackgroundBlob from '../../assets/left_blob_bg.svg';
+import LeftForegroundBlob from '../../assets/left_blog_fg.svg';
+import RightBackgroundBlob from '../../assets/right_blob_bg.svg';
+import RightForegroundBlob from '../../assets/right_blob_fg.svg';
 
 const floatingAnimation = {
     repeat: Infinity,

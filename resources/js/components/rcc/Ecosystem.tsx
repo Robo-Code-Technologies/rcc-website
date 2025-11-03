@@ -3,12 +3,12 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import { Autoplay, EffectCreative, Pagination } from 'swiper/modules';
 
-import EcosysBg from '../assets/ecosys_bg.svg';
-import Bot from '../assets/ecosys_bot.png';
-import BottomBlob from '../assets/ecosys_bottom_blob.svg';
-import Elearning from '../assets/ecosys_elearning.png';
-import Path from '../assets/ecosys_path.png';
-import TopBlob from '../assets/ecosys_top_blob.svg';
+import EcosysBg from '../../assets/ecosys_bg.svg';
+import Bot from '../../assets/ecosys_bot.png';
+import BottomBlob from '../../assets/ecosys_bottom_blob.svg';
+import Elearning from '../../assets/ecosys_elearning.png';
+import Path from '../../assets/ecosys_path.png';
+import TopBlob from '../../assets/ecosys_top_blob.svg';
 
 import 'swiper/css';
 import 'swiper/css/effect-creative';

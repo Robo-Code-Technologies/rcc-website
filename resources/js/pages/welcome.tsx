@@ -1,12 +1,14 @@
 import { useState } from 'react';
 
-import { SubHero } from '../components/SubHero';
-import { DocumentHead } from '../components/DocumentHead';
-import { HeroSection } from '../components/HeroSection';
-import { Navigation } from '../components/Navigation';
-import { Ecosystem } from '@/components/Ecosystem';
-import { TargetAudience } from '@/components/TargetAudience';
-import { Footer } from '@/components/Footer';
+import ContactUs from '@/components/rcc/ContactUs';
+import { Ecosystem } from '@/components/rcc/Ecosystem';
+import { Footer } from '@/components/rcc/Footer';
+import InAction from '@/components/rcc/InAction';
+import { TargetAudience } from '@/components/rcc/TargetAudience';
+import { DocumentHead } from '../components/rcc/DocumentHead';
+import { HeroSection } from '../components/rcc/HeroSection';
+import { Navigation } from '../components/rcc/Navigation';
+import { SubHero } from '../components/rcc/SubHero';
 
 export default function Welcome() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -22,7 +24,12 @@ export default function Welcome() {
             <SubHero />
             <Ecosystem />
             <TargetAudience />
-            <div className="py-12 bg-white"></div>
+            <div className="bg-white p-16">
+                <hr className="h-[1px] border-none bg-gray-200" />
+            </div>
+            <InAction />
+            <div className="bg-white py-16"></div>
+            <ContactUs />
             <Footer />
         </>
     );

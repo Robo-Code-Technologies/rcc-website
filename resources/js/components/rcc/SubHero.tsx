@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
 import { FeatureCard } from './FeatureCard';
-import { featuresData } from '../data/features';
+import { featuresData } from '../../data/features';
 
-import BottomBackgroundBlob from '../assets/bottom_blob_bg.svg';
-import BottomForegroundBlob from '../assets/bottom_blob_fg.svg';
-import BottomSubForegroundBlob from '../assets/bottom_blob_fg_sub.svg';
-import RobotArm from '../assets/robot_arm.svg';
+import BottomBackgroundBlob from '../../assets/bottom_blob_bg.svg';
+import BottomForegroundBlob from '../../assets/bottom_blob_fg.svg';
+import BottomSubForegroundBlob from '../../assets/bottom_blob_fg_sub.svg';
+import RobotArm from '../../assets/robot_arm.svg';
 
 const blobAnimationVariants = {
     background: {

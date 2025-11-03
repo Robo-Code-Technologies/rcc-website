@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import RoboCodeLogo from '../assets/rcc_logo.svg';
+import RoboCodeLogo from '../../assets/rcc_logo.svg';
 
 interface NavigationProps {
     isMobileMenuOpen: boolean;
@@ -31,7 +31,7 @@ export function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }: Navigation
                         transition={{ duration: 0.2 }}
                     />
                     
-                    {['Product', 'Pricing', 'Resources', 'Company', 'Contact'].map((item, index) => (
+                    {['Home', 'Future', 'Product', 'Partners', 'Team', 'Impact'].map((item, index) => (
                         <motion.a
                             key={item}
                             className="text-white/95 hover:text-white text-sm font-medium px-3 py-2 rounded-xl transition-all duration-100 hover:bg-white/15 cursor-pointer"
@@ -45,13 +45,6 @@ export function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }: Navigation
                     ))}
                     
                     <motion.div className="ml-8 flex items-center gap-3">
-                        <motion.a
-                            className="text-white/95 hover:text-white text-sm font-medium px-4 py-2 rounded-xl transition-all duration-300 hover:bg-white/15 cursor-pointer"
-                            whileHover={{ scale: 1.05, backgroundColor: 'rgba(255,255,255,0.15)' }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            Login
-                        </motion.a>
                         <motion.a 
                             className="bg-gradient-to-r from-blue-500 to-purple-600 text-white text-sm font-semibold px-6 py-2.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer"
                             whileHover={{ 
@@ -64,7 +57,7 @@ export function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }: Navigation
                                 boxShadow: '0 10px 25px rgba(99, 102, 241, 0.2)'
                             }}
                         >
-                            Get Started
+                            Contact Us
                         </motion.a>
                     </motion.div>
                 </motion.div>
@@ -127,12 +120,6 @@ export function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }: Navigation
                         
                         <div className="pt-2 space-y-2">
                             <motion.a 
-                                className="block text-white/95 hover:text-white py-3 px-4 rounded-xl transition-all duration-300 hover:bg-white/15 cursor-pointer"
-                                whileHover={{ x: 4, backgroundColor: 'rgba(255,255,255,0.15)' }}
-                            >
-                                Login
-                            </motion.a>
-                            <motion.a 
                                 className="block bg-gradient-to-r from-blue-500 to-purple-600 text-white text-center py-3 px-4 rounded-xl font-semibold shadow-lg cursor-pointer"
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
@@ -141,7 +128,7 @@ export function Navigation({ isMobileMenuOpen, setIsMobileMenuOpen }: Navigation
                                     boxShadow: '0 10px 25px rgba(99, 102, 241, 0.2)'
                                 }}
                             >
-                                Get Started
+                                Contact Us
                             </motion.a>
                         </div>
                     </motion.div>

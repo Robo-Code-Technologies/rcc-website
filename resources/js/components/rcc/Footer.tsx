@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 
-import Logo from '../assets/rcc_logo.svg';
+import Logo from '../../assets/rcc_logo.svg';
 
 export function Footer() {
     return (
