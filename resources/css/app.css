@@ -3,35 +3,78 @@
 @plugin 'tailwindcss-animate';
 
 /* ============================================
-   DEBUG: RED BORDER ON ALL ELEMENTS WITH LABELS
+   DEBUG: Guide lines only (no element borders)
    Remove this block when done debugging
    ============================================ */
-* {
+/* * {
     outline: 1px solid red !important;
-}
+} */
 
-/* Label each element with its unique ID */
-body *::after {
-    content: attr(data-debug-id) !important;
+/* Universal left margin guide line */
+body::before {
+    content: '' !important;
     position: fixed !important;
+    left: 6rem !important; /* 96px = ml-24 */
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 2px !important;
     background: red !important;
-    color: white !important;
-    font-size: 9px !important;
-    padding: 1px 3px !important;
-    z-index: 999999 !important;
+    z-index: 9999999 !important;
     pointer-events: none !important;
-    font-family: 'Courier New', monospace !important;
-    line-height: 1.2 !important;
-    white-space: nowrap !important;
-    border-radius: 2px !important;
-    margin: 0 !important;
-    opacity: 0 !important;
-    transition: opacity 0.2s !important;
 }
 
-/* Show label on hover */
-body *:hover::after {
-    opacity: 1 !important;
+/* Universal right margin guide line */
+body::after {
+    content: '' !important;
+    position: fixed !important;
+    right: 6rem !important; /* 96px = mr-24 */
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 2px !important;
+    background: red !important;
+    z-index: 9999999 !important;
+    pointer-events: none !important;
+}
+
+/* Center guide line */
+html::before {
+    content: '' !important;
+    position: fixed !important;
+    left: 50% !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    width: 2px !important;
+    background: blue !important;
+    z-index: 9999999 !important;
+    pointer-events: none !important;
+    transform: translateX(-50%) !important;
+}
+
+@media (min-width: 640px) {
+    body::before {
+        left: 9rem !important; /* 144px = ml-36 */
+    }
+    body::after {
+        right: 9rem !important; /* 144px = mr-36 */
+    }
+}
+
+@media (min-width: 768px) {
+    body::before {
+        left: 12rem !important; /* 192px = ml-48 */
+    }
+    body::after {
+        right: 12rem !important; /* 192px = mr-48 */
+    }
+}
+
+@media (min-width: 1024px) {
+    body::before {
+        left: 15rem !important; /* 240px = ml-60 */
+    }
+    body::after {
+        right: 15rem !important; /* 240px = mr-60 */
+    }
 }
 /* ============================================ */
 

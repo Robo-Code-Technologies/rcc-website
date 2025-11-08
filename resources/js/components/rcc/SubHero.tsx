@@ -77,7 +77,7 @@ export function SubHero() {
             </motion.div>
 
             {/* White Content Section */}
-            <motion.div className="bg-white p-4 sm:p-8 md:p-16 lg:p-24">
+            <motion.div className="bg-white px-24 sm:px-36 md:px-48 lg:px-60 py-4 sm:py-8 md:py-16 lg:py-24">
                 {/* Features Section */}
                 <motion.div className="flex flex-col lg:flex-row w-full gap-8 lg:gap-24">
                     <motion.div className="w-full lg:w-1/2">
@@ -100,8 +100,8 @@ export function SubHero() {
                 <hr className='my-20 border-none bg-gray-200 h-[1px]' />
 
                 {/* Features Section */}
-                <motion.div className="flex flex-col lg:flex-row w-full gap-8 lg:gap-24">
-                    <motion.div className="w-full lg:w-1/2">
+                <motion.div className="flex flex-col lg:flex-row w-full lg:gap-0 gap-8 lg:items-center">
+                    <motion.div className="w-full lg:w-1/2 lg:px-8 lg:pl-20">
                         <motion.p
                             className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight font-bold text-blue-950"
                             style={{ fontFamily: 'Fredoka' }}
@@ -114,7 +114,7 @@ export function SubHero() {
                             We spark curiosity and turn it into skills that inspire innovation and problem-solving.
                         </motion.p>
                     </motion.div>
-                    <motion.div className="w-full lg:w-1/2">
+                    <motion.div className="w-full lg:w-1/2 lg:px-8">
                         <motion.ul>
                             {featuresData.map((feature, index) => (
                                 <FeatureCard
