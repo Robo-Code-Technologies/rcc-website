@@ -66,7 +66,7 @@ export function TargetAudience() {
                 <hr className="h-[1px] border-none bg-gray-200" />
             </div>
 
-            <div id="team" className="[&_*]:!outline-none">
+            <div id="team">
                 <motion.h1
                     className="px-4 text-center text-3xl font-bold text-blue-950 sm:text-4xl md:text-5xl"
                     style={{ fontFamily: 'Fredoka' }}
@@ -80,82 +80,88 @@ export function TargetAudience() {
 
                 <motion.div className="mt-12 px-24 sm:px-36 md:px-48 lg:px-60 pb-16">
                 {/* Founders */}
-                <motion.div className="flex w-full flex-col gap-6 lg:flex-row lg:gap-0 items-center">
-                    <motion.div className="order-2 w-full lg:order-1 lg:w-1/2 lg:px-8">
-                        <motion.h1
-                            className="text-center text-2xl font-bold text-blue-950 sm:text-3xl lg:text-left lg:text-4xl"
-                            style={{ fontFamily: 'Fredoka' }}
-                        >
-                            Where It All Began
-                        </motion.h1>
+                <motion.div className="p-0 max-w-6xl mx-auto px-16">
+                    <motion.div className="flex w-full flex-col gap-6 lg:flex-row lg:justify-between items-center">
+                        <motion.div className="order-2 lg:order-1 flex-1 lg:pr-8">
+                            <motion.h1
+                                className="text-center text-2xl font-bold text-blue-950 sm:text-3xl lg:text-left lg:text-4xl"
+                                style={{ fontFamily: 'Fredoka' }}
+                            >
+                                Where It All Began
+                            </motion.h1>
 
-                        <motion.p className="mt-3 text-center text-base text-blue-950 sm:text-lg lg:text-left leading-relaxed">
-                            Robo Code Club was founded by passionate software
-                            engineers — Kyle, Kent, and Chan — who saw firsthand
-                            how fast and disruptive AI is changing the world. We
-                            realized that while technology is evolving at an
-                            incredible pace, education isn't keeping up — and
-                            kids risk being left behind if we don't act now.
-                        </motion.p>
-                    </motion.div>
-                    <motion.div className="order-1 w-full flex justify-center lg:order-2 lg:w-1/2">
-                        <motion.img
-                            className="w-full max-w-xs rounded-lg shadow-md"
-                            src={Founders}
-                        />
+                            <motion.p className="mt-3 text-center text-base text-blue-950 sm:text-lg lg:text-left leading-relaxed">
+                                Robo Code Club was founded by passionate software
+                                engineers — Kyle, Kent, and Chan — who saw firsthand
+                                how fast and disruptive AI is changing the world. We
+                                realized that while technology is evolving at an
+                                incredible pace, education isn't keeping up — and
+                                kids risk being left behind if we don't act now.
+                            </motion.p>
+                        </motion.div>
+                        <motion.div className="order-1 lg:order-2 flex-shrink-0">
+                            <motion.img
+                                className="w-full max-w-xs rounded-lg shadow-md"
+                                src={Founders}
+                            />
+                        </motion.div>
                     </motion.div>
                 </motion.div>
 
                 {/* The AI Shift */}
-                <motion.div className="mt-12 flex w-full flex-col gap-6 lg:flex-row lg:gap-0 items-center">
-                    <motion.div className="order-1 w-full flex justify-center lg:w-1/2">
-                        <motion.img
-                            className="w-full max-w-xs rounded-lg shadow-md"
-                            src={AIShift}
-                        />
-                    </motion.div>
-                    <motion.div className="order-2 w-full lg:w-1/2 lg:px-8">
-                        <motion.h1
-                            className="text-center text-2xl font-bold text-blue-950 sm:text-3xl lg:text-left lg:text-4xl"
-                            style={{ fontFamily: 'Fredoka' }}
-                        >
-                            The AI Shift
-                        </motion.h1>
+                <motion.div className="mt-12 p-0 max-w-6xl mx-auto px-16">
+                    <motion.div className="flex w-full flex-col gap-6 lg:flex-row lg:justify-between items-center">
+                        <motion.div className="order-1 flex-shrink-0">
+                            <motion.img
+                                className="w-full max-w-xs rounded-lg shadow-md"
+                                src={AIShift}
+                            />
+                        </motion.div>
+                        <motion.div className="order-2 flex-1 lg:pl-8">
+                            <motion.h1
+                                className="text-center text-2xl font-bold text-blue-950 sm:text-3xl lg:text-left lg:text-4xl"
+                                style={{ fontFamily: 'Fredoka' }}
+                            >
+                                The AI Shift
+                            </motion.h1>
 
-                        <motion.p className="mt-3 text-center text-base text-blue-950 sm:text-lg lg:text-left leading-relaxed">
-                            AI is transforming every field — from art and
-                            medicine to business and engineering. Whatever path
-                            kids choose, they'll work alongside technology. We
-                            believe understanding it early gives them the power
-                            to adapt, create, and thrive in the future. CHange
-                            the title of this to shorter
-                        </motion.p>
+                            <motion.p className="mt-3 text-center text-base text-blue-950 sm:text-lg lg:text-left leading-relaxed">
+                                AI is transforming every field — from art and
+                                medicine to business and engineering. Whatever path
+                                kids choose, they'll work alongside technology. We
+                                believe understanding it early gives them the power
+                                to adapt, create, and thrive in the future. CHange
+                                the title of this to shorter
+                            </motion.p>
+                        </motion.div>
                     </motion.div>
                 </motion.div>
 
                 {/* Our Mission */}
-                <motion.div className="mt-12 flex w-full flex-col gap-6 lg:flex-row lg:gap-0 items-center">
-                    <motion.div className="order-2 w-full lg:order-1 lg:w-1/2 lg:px-8">
-                        <motion.h1
-                            className="text-center text-2xl font-bold text-blue-950 sm:text-3xl lg:text-left lg:text-4xl"
-                            style={{ fontFamily: 'Fredoka' }}
-                        >
-                            Our Mission
-                        </motion.h1>
+                <motion.div className="mt-12 p-0 max-w-6xl mx-auto px-16">
+                    <motion.div className="flex w-full flex-col gap-6 lg:flex-row lg:justify-between items-center">
+                        <motion.div className="order-2 lg:order-1 flex-1 lg:pr-8">
+                            <motion.h1
+                                className="text-center text-2xl font-bold text-blue-950 sm:text-3xl lg:text-left lg:text-4xl"
+                                style={{ fontFamily: 'Fredoka' }}
+                            >
+                                Our Mission
+                            </motion.h1>
 
-                        <motion.p className="mt-3 text-center text-base text-blue-950 sm:text-lg lg:text-left leading-relaxed">
-                            We're here to equip the next generation with
-                            real-world tech skills through fun, hands-on
-                            robotics and coding education. By learning through
-                            play, every child gains the confidence to navigate —
-                            and build — the world of tomorrow.
-                        </motion.p>
-                    </motion.div>
-                    <motion.div className="order-1 w-full flex justify-center lg:order-2 lg:w-1/2">
-                        <motion.img
-                            className="w-full max-w-xs rounded-lg shadow-md"
-                            src={Mission}
-                        />
+                            <motion.p className="mt-3 text-center text-base text-blue-950 sm:text-lg lg:text-left leading-relaxed">
+                                We're here to equip the next generation with
+                                real-world tech skills through fun, hands-on
+                                robotics and coding education. By learning through
+                                play, every child gains the confidence to navigate —
+                                and build — the world of tomorrow.
+                            </motion.p>
+                        </motion.div>
+                        <motion.div className="order-1 lg:order-2 flex-shrink-0">
+                            <motion.img
+                                className="w-full max-w-xs rounded-lg shadow-md"
+                                src={Mission}
+                            />
+                        </motion.div>
                     </motion.div>
                 </motion.div>
             </motion.div>
