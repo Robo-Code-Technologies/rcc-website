@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 
 export function Mascot() {
     const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+    const [isBlinking, setIsBlinking] = useState(false);
     const leftEyeRef = useRef<HTMLDivElement>(null);
     const rightEyeRef = useRef<HTMLDivElement>(null);
 
@@ -12,6 +13,16 @@ export function Mascot() {
 
         window.addEventListener('mousemove', handleMouseMove);
         return () => window.removeEventListener('mousemove', handleMouseMove);
+    }, []);
+
+    // Blink effect every 5 seconds
+    useEffect(() => {
+        const blinkInterval = setInterval(() => {
+            setIsBlinking(true);
+            setTimeout(() => setIsBlinking(false), 150); // Blink duration: 150ms
+        }, 5000); // Blink every 5 seconds
+
+        return () => clearInterval(blinkInterval);
     }, []);
 
     const calculateEyePosition = (eyeRef: React.RefObject<HTMLDivElement>) => {
@@ -41,7 +52,7 @@ export function Mascot() {
 
     return (
         <div
-            className="relative mr-[70px] w-full max-w-md"
+            className="relative mr-[168px] w-full max-w-md"
             style={{ transform: 'scale(1.05)' }}
         >
             <img src="/mascot.png" alt="Mascot" className="w-full rounded-lg" />
@@ -60,7 +71,7 @@ export function Mascot() {
                 <div
                     className="h-1/2 w-1/2 rounded-full bg-white transition-transform duration-100"
                     style={{
-                        transform: `translate(${leftEyePos.x}px, ${leftEyePos.y}px)`,
+                        transform: `translate(${leftEyePos.x}px, ${leftEyePos.y}px) scaleY(${isBlinking ? 0.1 : 1})`,
                     }}
                 />
             </div>
@@ -79,7 +90,7 @@ export function Mascot() {
                 <div
                     className="h-1/2 w-1/2 rounded-full bg-white transition-transform duration-100"
                     style={{
-                        transform: `translate(${rightEyePos.x}px, ${rightEyePos.y}px)`,
+                        transform: `translate(${rightEyePos.x}px, ${rightEyePos.y}px) scaleY(${isBlinking ? 0.1 : 1})`,
                     }}
                 />
             </div>
