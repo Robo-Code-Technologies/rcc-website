@@ -26,3 +26,30 @@ createInertiaApp({
 
 // This will set light / dark mode on load...
 initializeTheme();
+
+// ============================================
+// DEBUG: Label all elements with unique IDs
+// Remove this block when done debugging
+// ============================================
+function labelAllElements() {
+    const tagCounts: Record<string, number> = {};
+    
+    const allElements = document.querySelectorAll('body *');
+    allElements.forEach((element) => {
+        const tagName = element.tagName.toLowerCase();
+        
+        // Initialize counter for this tag if not exists
+        if (!tagCounts[tagName]) {
+            tagCounts[tagName] = 0;
+        }
+        
+        // Increment and assign unique ID
+        tagCounts[tagName]++;
+        element.setAttribute('data-debug-id', `${tagName}-${tagCounts[tagName]}`);
+    });
+}
+
+// Run on load and after any Inertia page change
+labelAllElements();
+document.addEventListener('inertia:success', labelAllElements);
+// ============================================

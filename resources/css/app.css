@@ -2,6 +2,39 @@
 
 @plugin 'tailwindcss-animate';
 
+/* ============================================
+   DEBUG: RED BORDER ON ALL ELEMENTS WITH LABELS
+   Remove this block when done debugging
+   ============================================ */
+* {
+    outline: 1px solid red !important;
+}
+
+/* Label each element with its unique ID */
+body *::after {
+    content: attr(data-debug-id) !important;
+    position: fixed !important;
+    background: red !important;
+    color: white !important;
+    font-size: 9px !important;
+    padding: 1px 3px !important;
+    z-index: 999999 !important;
+    pointer-events: none !important;
+    font-family: 'Courier New', monospace !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    border-radius: 2px !important;
+    margin: 0 !important;
+    opacity: 0 !important;
+    transition: opacity 0.2s !important;
+}
+
+/* Show label on hover */
+body *:hover::after {
+    opacity: 1 !important;
+}
+/* ============================================ */
+
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 
