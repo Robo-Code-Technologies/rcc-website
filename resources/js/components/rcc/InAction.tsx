@@ -1,6 +1,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { EffectCreative, Pagination } from 'swiper/modules';
+import { Pagination } from 'swiper/modules';
 import Image1 from '../../assets/carousel_pics/image_1.jpg';
 import Image2 from '../../assets/carousel_pics/image_2.jpg';
 import Image3 from '../../assets/carousel_pics/image_3.jpg';
@@ -28,22 +28,10 @@ export default function InAction() {
             <Swiper
                 className="max-w-[800px] overflow-hidden rounded-2xl shadow-xl"
                 direction="horizontal"
-                modules={[EffectCreative, Pagination]}
+                modules={[Pagination]}
+                spaceBetween={20}
                 pagination={{
                     clickable: true,
-                }}
-                effect="creative"
-                creativeEffect={{
-                    prev: {
-                        scale: 0.8,
-                        opacity: 0,
-                        translate: ['-100%', 0, 0],
-                    },
-                    next: {
-                        scale: 0.8,
-                        opacity: 0,
-                        translate: ['100%', 0, 0],
-                    },
                 }}
                 loop={true}
             >

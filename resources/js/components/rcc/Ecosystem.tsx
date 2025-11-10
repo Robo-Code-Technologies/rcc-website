@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import { Autoplay, EffectCreative, Pagination } from 'swiper/modules';
+import { Autoplay, Pagination } from 'swiper/modules';
 
 import EcosysBg from '../../assets/ecosys_bg.svg';
 import Bot from '../../assets/ecosys_bot.png';
@@ -47,26 +47,14 @@ export function Ecosystem() {
                         loop={true}
                         className="h-[calc(min(450px,35vw))] w-[calc(min(450px,35vw))] rounded-xl"
                         direction="vertical"
+                        spaceBetween={20}
                         pagination={{
                             clickable: true,
                         }}
-                        modules={[EffectCreative, Autoplay, Pagination]}
+                        modules={[Autoplay, Pagination]}
                         autoplay={{
                             delay: 3000,
                             disableOnInteraction: true,
-                        }}
-                        effect="creative"
-                        creativeEffect={{
-                            prev: {
-                                scale: 0.8,
-                                opacity: 0,
-                                translate: [0, '-100%', 0],
-                            },
-                            next: {
-                                scale: 0.8,
-                                opacity: 0,
-                                translate: [0, '100%', 0],
-                            },
                         }}
                     >
                         <SwiperSlide>
