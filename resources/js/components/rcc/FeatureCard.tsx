@@ -19,11 +19,11 @@ export function FeatureCard({ title, description, icon, isFirst = false, isLast 
                             src={icon}
                         />
                     </motion.div>
-                    <motion.p className="text-lg sm:text-xl md:text-2xl font-semibold text-blue-950">
+                    <motion.p className="text-base font-semibold text-blue-950 sm:text-lg">
                         {title}
                     </motion.p>
                 </motion.div>
-                <motion.p className="mb-4 ml-11 sm:ml-15 text-gray-400 text-sm sm:text-base">
+                <motion.p className="mb-4 ml-11 text-xs text-gray-500 sm:ml-15 sm:text-sm">
                     {description}
                 </motion.p>
             </motion.li>

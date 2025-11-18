@@ -20,21 +20,19 @@ export function HeroSection() {
             <div className="relative z-50 flex h-full min-h-full w-full items-center">
                 {/* Content area - 75% width centered, fills available height */}
                 <div 
-                    className="hero-content-1300 relative z-50 mx-auto flex h-auto w-[75%] max-h-[80vh] flex-col items-center justify-center outline outline-4 outline-green-500 md:flex-row"
+                    className="hero-content-1300 relative z-50 mx-auto flex h-auto w-[75%] flex-col items-center justify-center outline outline-4 outline-green-500 md:flex-row"
                 >
                     <style>{`
-                        @media (min-width: 1200px) and (max-width: 1400px) {
+                        @media (min-width: 1200px) and (max-width: 1600px) {
                             .hero-content-1300 {
-                                margin-top: 0;
-                            }
-                            .hero-heading-1300 {
-                                font-size: 4vh !important;
+                                padding-top: 2rem;
+                                padding-bottom: 2rem;
                             }
                         }
                     `}</style>
                     {/* Mascot section - Shows on top on mobile, right side on desktop */}
                     <motion.div 
-                        className="flex w-full items-center justify-center py-8 outline outline-2 outline-purple-500 md:order-2 md:w-[40%]"
+                        className="flex w-full items-center justify-center py-4 outline outline-2 outline-purple-500 md:order-2 md:w-[40%] md:py-6"
                         initial={{ opacity: 0, x: 50 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6, delay: 0.3 }}
@@ -43,7 +41,7 @@ export function HeroSection() {
                     </motion.div>
 
                     {/* Text Content section - Shows below mascot on mobile, left side on desktop */}
-                    <motion.div className="flex w-full flex-col justify-center py-8 text-center outline outline-2 outline-yellow-500 md:order-1 md:w-[60%] md:text-left">
+                    <motion.div className="flex w-full flex-col justify-center py-4 text-center outline outline-2 outline-yellow-500 md:order-1 md:w-[60%] md:py-6 md:text-left">
                         <motion.h1
                             className="hero-heading-1300 font-bold leading-tight text-white"
                             style={{ 
@@ -56,8 +54,7 @@ export function HeroSection() {
                             <br /> Robotics & Coding
                         </motion.h1>
                         <motion.p 
-                            className="my-4 leading-relaxed text-gray-400 sm:my-6 md:my-8 lg:my-10"
-                            style={{ fontSize: 'clamp(0.875rem, 2vh, 1.25rem)' }}
+                            className="my-3 text-base leading-relaxed text-gray-400 sm:my-4 sm:text-lg md:my-5 lg:my-6"
                         >
                             Robo Code Club empowers students to explore technology,
                             solve problems, and create real-world solutions through

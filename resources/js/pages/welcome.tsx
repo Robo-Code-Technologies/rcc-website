@@ -12,6 +12,7 @@ import { SubHero } from '../components/rcc/SubHero';
 
 export default function Welcome() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [showDebug, setShowDebug] = useState(true);
 
     return (
         <>
@@ -19,9 +20,11 @@ export default function Welcome() {
             <Navigation
                 isMobileMenuOpen={isMobileMenuOpen}
                 setIsMobileMenuOpen={setIsMobileMenuOpen}
+                showDebug={showDebug}
+                setShowDebug={setShowDebug}
             />
             <HeroSection />
-            <SubHero />
+            <SubHero showDebug={showDebug} />
             <Ecosystem />
             <TargetAudience />
             <div className="bg-white px-24 py-16 sm:px-36 md:px-48 lg:px-60">

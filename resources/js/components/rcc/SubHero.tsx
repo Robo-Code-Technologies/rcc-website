@@ -45,7 +45,11 @@ const blobTransitions = {
     },
 };
 
-export function SubHero() {
+interface SubHeroProps {
+    showDebug?: boolean;
+}
+
+export function SubHero({ showDebug = false }: SubHeroProps) {
     return (
         <motion.div className="relative -bottom-0 min-h-screen overflow-visible bg-blue-950 pt-16">
             {/* Bottom Blob Animations */}
@@ -79,30 +83,30 @@ export function SubHero() {
             {/* White Content Section */}
             <motion.div className="bg-white px-24 py-4 sm:px-36 sm:py-8 md:px-48 md:py-16 lg:px-60 lg:py-24">
                 {/* Future Section - AI and Robotics */}
-                <motion.div
+                {/* <motion.div
                     id="future"
                     className="flex w-full flex-col gap-8 lg:flex-row lg:gap-24"
                 >
                     <motion.div className="w-full lg:w-1/2">
                         <motion.img className="mx-auto" src={RobotArm} />
                     </motion.div>
-                    <motion.div className="w-full lg:w-1/2">
+                    <motion.div className="w-full text-center lg:w-1/2 lg:text-left">
                         <motion.h1
-                            className="text-5xl leading-tight font-bold tracking-wide text-blue-950"
+                            className="text-3xl leading-tight font-bold tracking-wide text-blue-950 sm:text-4xl md:text-5xl"
                             style={{ fontFamily: 'Fredoka' }}
                         >
                             AI and Robotics are <br />
                             reshaping the world.
                         </motion.h1>
                         <motion.h2
-                            className="my-3 text-3xl font-semibold text-red-500"
+                            className="my-3 text-xl font-semibold text-red-500 sm:text-2xl md:text-3xl"
                             style={{ fontFamily: 'Fredoka' }}
                         >
                             Is your child ready for the future?
                         </motion.h2>
-                        <motion.p className="max-w-[540px] text-lg text-gray-500">
+                        <motion.p className="mx-auto max-w-full text-base text-gray-500 sm:max-w-[540px] sm:text-lg lg:mx-0">
                             AI and robotics are transforming the world—but most
-                            kids aren’t learning the skills to keep up.{' '}
+                            kids aren't learning the skills to keep up.{' '}
                             <span className="font-extrabold">
                                 Robo Code Club
                             </span>{' '}
@@ -113,14 +117,92 @@ export function SubHero() {
                             .
                         </motion.p>
                     </motion.div>
+                </motion.div> */}
+
+                {/* Orange Section - 75% of viewport width */}
+                <motion.div
+                    className="relative left-1/2 w-[75vw] -translate-x-1/2"
+                    style={
+                        showDebug
+                            ? {
+                                  outline: '4px solid orange',
+                                  outlineOffset: '-4px',
+                              }
+                            : {}
+                    }
+                >
+                    <motion.div className="flex w-full flex-col lg:flex-row">
+                        {/* Left Section */}
+                        <motion.div
+                            className="flex w-full items-center justify-center lg:w-[40%]"
+                            style={
+                                showDebug
+                                    ? {
+                                          outline: '2px solid blue',
+                                          outlineOffset: '-2px',
+                                      }
+                                    : {}
+                            }
+                        >
+                            <motion.img
+                                className="mx-auto w-full max-w-[200px] sm:max-w-[250px] md:max-w-[300px]"
+                                src={RobotArm}
+                                alt="Robot Arm"
+                            />
+                        </motion.div>
+
+                        {/* Right Section */}
+                        <motion.div
+                            className="w-full pt-6 text-center sm:p-8 md:p-10 lg:w-[60%] lg:p-12 lg:text-left"
+                            style={
+                                showDebug
+                                    ? {
+                                          outline: '2px solid green',
+                                          outlineOffset: '-2px',
+                                      }
+                                    : {}
+                            }
+                        >
+                            <motion.h1
+                                className="leading-tight font-bold tracking-wide text-blue-950"
+                                style={{
+                                    fontFamily: 'Fredoka',
+                                    fontSize: 'clamp(1.5rem, 5vh, 4rem)',
+                                }}
+                            >
+                                AI and Robotics are <br />
+                                reshaping the world.
+                            </motion.h1>
+                            <motion.h2
+                                className="mb-6 mt-3 text-xl font-semibold text-red-500 sm:text-2xl md:text-3xl"
+                                style={{ fontFamily: 'Fredoka' }}
+                            >
+                                Is your child ready for the future?
+                            </motion.h2>
+                            <motion.p className="mx-auto max-w-full text-base text-gray-500 sm:max-w-[540px] sm:text-lg lg:mx-0">
+                                AI and robotics are transforming the world—but
+                                most kids aren't learning the skills to keep up.{' '}
+                                <span className="font-extrabold">
+                                    Robo Code Club
+                                </span>{' '}
+                                bridges that gap through fun, hands-on learning
+                                in coding and robotics, helping children not
+                                just adapt to the future,{' '}
+                                <span className="font-extrabold">
+                                    but build it
+                                </span>
+                                .
+                            </motion.p>
+                        </motion.div>
+                    </motion.div>
                 </motion.div>
 
-                <div className="my-20 w-full px-24 sm:px-36 md:px-48 lg:px-60">
+                <div className="relative left-1/2 my-10 w-[75vw] -translate-x-1/2">
                     <hr className="h-[1px] border-none bg-gray-200" />
                 </div>
 
                 {/* Features Section - Every student becomes a creator */}
-                <motion.div className="flex w-full flex-col gap-8 lg:flex-row lg:items-center lg:gap-0">
+                {/* <motion.div className="flex w-full flex-col gap-8 lg:flex-row lg:items-center lg:gap-0">
                     <motion.div className="w-full lg:w-1/2 lg:px-8 lg:pl-20">
                         <motion.p
                             className="text-2xl leading-tight font-bold text-blue-950 sm:text-3xl md:text-4xl lg:text-5xl"
@@ -151,6 +233,81 @@ export function SubHero() {
                                 />
                             ))}
                         </motion.ul>
+                    </motion.div>
+                </motion.div> */}
+
+                {/* Features Section - Restructured like Orange Section */}
+                <motion.div
+                    className="relative left-1/2 w-[75vw] -translate-x-1/2"
+                    style={
+                        showDebug
+                            ? {
+                                  outline: '4px solid purple',
+                                  outlineOffset: '-4px',
+                              }
+                            : {}
+                    }
+                >
+                    <motion.div className="flex w-full flex-col lg:flex-row">
+                        {/* Left Section - 40% */}
+                        <motion.div
+                            className="w-full pt-6 text-center lg:w-[40%] lg:p-12 lg:text-left"
+                            style={
+                                showDebug
+                                    ? {
+                                          outline: '2px solid blue',
+                                          outlineOffset: '-2px',
+                                      }
+                                    : {}
+                            }
+                        >
+                            <motion.p
+                                className="font-bold leading-tight tracking-wide text-blue-950"
+                                style={{ 
+                                    fontFamily: 'Fredoka',
+                                    fontSize: 'clamp(1.5rem, 5vh, 4rem)'
+                                }}
+                            >
+                                Every student
+                                <br />
+                                becomes{' '}
+                                <span className="text-red-500">a creator</span>
+                                <br />
+                                not just a learner.
+                            </motion.p>
+                            <motion.p className="mx-auto mt-4 pb-6 max-w-full text-base text-gray-500 sm:max-w-[540px] sm:text-lg lg:mx-0 lg:pb-0">
+                                We spark curiosity and turn it into skills that
+                                inspire innovation and problem-solving.
+                            </motion.p>
+                        </motion.div>
+
+                        {/* Right Section - 60% */}
+                        <motion.div
+                            className="w-full p-6 lg:w-[60%] lg:p-12"
+                            style={
+                                showDebug
+                                    ? {
+                                          outline: '2px solid green',
+                                          outlineOffset: '-2px',
+                                      }
+                                    : {}
+                            }
+                        >
+                            <motion.ul>
+                                {featuresData.map((feature, index) => (
+                                    <FeatureCard
+                                        key={index}
+                                        title={feature.title}
+                                        description={feature.description}
+                                        icon={feature.icon}
+                                        isFirst={index === 0}
+                                        isLast={
+                                            index === featuresData.length - 1
+                                        }
+                                    />
+                                ))}
+                            </motion.ul>
+                        </motion.div>
                     </motion.div>
                 </motion.div>
 
