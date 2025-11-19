@@ -7,9 +7,9 @@ export function ClubInActionGallery() {
     return (
         <div className="w-full bg-white pt-12">
             <div className="container mx-auto px-4">
-                {/* 4x4 Gallery Grid */}
+                {/* 2x8 on mobile, 4x4 on desktop Gallery Grid */}
                 <div className="mx-auto max-w-6xl">
-                    <div className="grid grid-cols-4 gap-4">
+                    <div className="grid grid-cols-2 gap-4 lg:grid-cols-4">
                         {/* Row 1 - Full opacity */}
                         {[1, 2, 3, 4].map((item) => (
                             <motion.div

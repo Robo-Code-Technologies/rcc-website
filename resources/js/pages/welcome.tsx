@@ -25,14 +25,11 @@ export default function Welcome() {
             />
             <HeroSection />
             <SubHero showDebug={showDebug} />
-            <Ecosystem />
-            <TargetAudience />
-            <div className="bg-white px-24 py-16 sm:px-36 md:px-48 lg:px-60">
-                <hr className="h-[1px] border-none bg-gray-200" />
-            </div>
-            <InAction />
+            <Ecosystem showDebug={showDebug} />
+            <TargetAudience showDebug={showDebug} />
+            <InAction showDebug={showDebug} />
             <div className="bg-white py-16"></div>
-            <EcosystemBanner />
+            <EcosystemBanner showDebug={showDebug} />
             <Footer />
         </>
     );

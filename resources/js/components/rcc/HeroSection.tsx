@@ -43,10 +43,9 @@ export function HeroSection() {
                     {/* Text Content section - Shows below mascot on mobile, left side on desktop */}
                     <motion.div className="flex w-full flex-col justify-center py-4 text-center outline outline-2 outline-yellow-500 md:order-1 md:w-[60%] md:py-6 md:text-left">
                         <motion.h1
-                            className="hero-heading-1300 font-bold leading-tight text-white"
+                            className="hero-heading-1300 text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-[clamp(1.5rem,5vh,4rem)]"
                             style={{ 
-                                fontFamily: 'Fredoka',
-                                fontSize: 'clamp(1.5rem, 5vh, 4rem)'
+                                fontFamily: 'Fredoka'
                             }}
                         >
                             Building Future

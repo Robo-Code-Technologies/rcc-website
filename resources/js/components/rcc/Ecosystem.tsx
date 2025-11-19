@@ -5,12 +5,20 @@ import BottomBlob from '../../assets/ecosys_bottom_blob.svg';
 import TopBlob from '../../assets/ecosys_top_blob.svg';
 import { VerticalCarousel } from './VerticalCarousel';
 
-export function Ecosystem() {
+interface EcosystemProps {
+    showDebug?: boolean;
+}
+
+export function Ecosystem({ showDebug = false }: EcosystemProps) {
     return (
-        <motion.div className="relative aspect-[3/2] bg-white">
-            <motion.div className="absolute z-0 w-full bg-white">
+        <motion.div className="relative aspect-[7/2] bg-white lg:aspect-[3/2]">
+            {/* Mobile: Simple colored background */}
+            <motion.div className="absolute z-0 h-full w-full bg-blue-950 lg:hidden" />
+            
+            {/* Desktop: Blob backgrounds */}
+            <motion.div className="absolute z-0 hidden h-full w-full bg-white lg:block">
                 <motion.img
-                    className="absolute -top-4 z-0 w-full object-cover"
+                    className="absolute -top-4 z-0 h-auto w-full object-cover"
                     src={TopBlob}
                     animate={{ y: [0, -10, 0] }}
                     transition={{
@@ -20,11 +28,11 @@ export function Ecosystem() {
                     }}
                 />
                 <motion.img
-                    className="relative z-10 w-full object-cover"
+                    className="relative z-10 h-auto w-full object-cover"
                     src={EcosysBg}
                 />
                 <motion.img
-                    className="absolute right-0 -bottom-10 z-0"
+                    className="absolute right-0 -bottom-10 z-0 h-auto w-full object-cover"
                     src={BottomBlob}
                     animate={{ y: [0, 10, 0] }}
                     transition={{
@@ -35,7 +43,8 @@ export function Ecosystem() {
                 />
             </motion.div>
 
-            <motion.div className="relative z-10 flex aspect-[3/2] w-full items-center px-24 sm:px-36 md:px-48 lg:px-60">
+            {/* Original content - commented out */}
+            {/* <motion.div className="relative z-10 flex aspect-[3/2] w-full items-center px-24 sm:px-36 md:px-48 lg:px-60">
                 <motion.div className="flex w-1/2 justify-center">
                     <VerticalCarousel />
                 </motion.div>
@@ -60,6 +69,134 @@ export function Ecosystem() {
                         into one seamless system — making robotics education
                         easy, accessible, and replicable for everyone.
                     </motion.p>
+                </motion.div>
+            </motion.div> */}
+
+            {/* Ecosystem Section - Restructured 75vw centered with 45-55 split */}
+            <motion.div className="relative z-10 flex aspect-[7/2] w-full items-center lg:aspect-[3/2]">
+                <motion.div
+                    className="relative left-1/2 w-[75vw] -translate-x-1/2"
+                    style={
+                        showDebug
+                            ? {
+                                  outline: '4px solid cyan',
+                                  outlineOffset: '-4px',
+                              }
+                            : {}
+                    }
+                >
+                    {/* Mobile Layout - Stacked vertically */}
+                    <motion.div className="flex w-full flex-col lg:hidden">
+                        {/* Title */}
+                        <div className="px-4 pt-20 text-center">
+                            <h1
+                                className="text-3xl font-bold leading-tight tracking-wide sm:text-4xl md:text-5xl"
+                                style={{
+                                    fontFamily: 'Fredoka',
+                                    margin: 0,
+                                }}
+                            >
+                                One ecosystem.
+                                <br />
+                                Endless way to build!
+                            </h1>
+                        </div>
+
+                        {/* Carousel */}
+                        <div
+                            className="flex w-full items-center justify-center"
+                            style={
+                                showDebug
+                                    ? {
+                                          outline: '2px solid blue',
+                                          outlineOffset: '-2px',
+                                          padding: 0,
+                                          margin: 0,
+                                      }
+                                    : { padding: 0, margin: 0 }
+                            }
+                        >
+                            <div className="scale-[0.7] sm:scale-75 md:scale-[0.875]">
+                                <VerticalCarousel />
+                            </div>
+                        </div>
+
+                        {/* Desc */}
+                        <div className="px-4 pb-20 text-center">
+                            <p
+                                className="mx-auto max-w-full text-base text-white sm:max-w-[540px] sm:text-lg"
+                                style={{ margin: 0 }}
+                            >
+                                We combined{' '}
+                                <span
+                                    className="font-bold"
+                                    style={{ color: '#F4B860' }}
+                                >
+                                    curriculum, software, and hardware
+                                </span>{' '}
+                                into one seamless system — making robotics
+                                education easy, accessible, and replicable for
+                                everyone.
+                            </p>
+                        </div>
+                    </motion.div>
+
+                    {/* Desktop Layout - Side by side */}
+                    <motion.div className="hidden w-full lg:flex lg:flex-row">
+                        {/* Left Section - 45% - Carousel */}
+                        <motion.div
+                            className="flex w-[45%] items-center justify-center"
+                            style={
+                                showDebug
+                                    ? {
+                                          outline: '2px solid blue',
+                                          outlineOffset: '-2px',
+                                      }
+                                    : {}
+                            }
+                        >
+                            <div className="scale-75">
+                                <VerticalCarousel />
+                            </div>
+                        </motion.div>
+
+                        {/* Right Section - 55% - Text */}
+                        <motion.div
+                            className="flex w-[55%] flex-col justify-center p-12 text-left"
+                            style={
+                                showDebug
+                                    ? {
+                                          outline: '2px solid green',
+                                          outlineOffset: '-2px',
+                                      }
+                                    : {}
+                            }
+                        >
+                            <motion.h1
+                                className="font-bold tracking-wide"
+                                style={{
+                                    fontFamily: 'Fredoka',
+                                    fontSize: 'clamp(1.5rem, 5vh, 4rem)',
+                                }}
+                            >
+                                One ecosystem.
+                                <br />
+                                Endless way to build!
+                            </motion.h1>
+                            <motion.p className="mt-4 max-w-full text-base text-white sm:text-lg">
+                                We combined{' '}
+                                <span
+                                    className="font-bold"
+                                    style={{ color: '#F4B860' }}
+                                >
+                                    curriculum, software, and hardware
+                                </span>{' '}
+                                into one seamless system — making robotics
+                                education easy, accessible, and replicable for
+                                everyone.
+                            </motion.p>
+                        </motion.div>
+                    </motion.div>
                 </motion.div>
             </motion.div>
         </motion.div>

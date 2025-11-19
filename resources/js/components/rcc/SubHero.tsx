@@ -133,8 +133,8 @@ export function SubHero({ showDebug = false }: SubHeroProps) {
                 >
                     <motion.div className="flex w-full flex-col lg:flex-row">
                         {/* Left Section */}
-                        <motion.div
-                            className="flex w-full items-center justify-center lg:w-[40%]"
+                        <motion.div 
+                            className="flex w-full items-center justify-center lg:w-[48%]"
                             style={
                                 showDebug
                                     ? {
@@ -153,7 +153,7 @@ export function SubHero({ showDebug = false }: SubHeroProps) {
 
                         {/* Right Section */}
                         <motion.div
-                            className="w-full pt-6 text-center sm:p-8 md:p-10 lg:w-[60%] lg:p-12 lg:text-left"
+                            className="w-full pt-6 text-left sm:p-8 md:p-10 lg:w-[52%] lg:p-12"
                             style={
                                 showDebug
                                     ? {
@@ -164,10 +164,9 @@ export function SubHero({ showDebug = false }: SubHeroProps) {
                             }
                         >
                             <motion.h1
-                                className="leading-tight font-bold tracking-wide text-blue-950"
+                                className="text-3xl font-bold leading-tight tracking-wide text-blue-950 sm:text-4xl md:text-5xl lg:text-[clamp(1.5rem,5vh,4rem)]"
                                 style={{
                                     fontFamily: 'Fredoka',
-                                    fontSize: 'clamp(1.5rem, 5vh, 4rem)',
                                 }}
                             >
                                 AI and Robotics are <br />
@@ -179,7 +178,7 @@ export function SubHero({ showDebug = false }: SubHeroProps) {
                             >
                                 Is your child ready for the future?
                             </motion.h2>
-                            <motion.p className="mx-auto max-w-full text-base text-gray-500 sm:max-w-[540px] sm:text-lg lg:mx-0">
+                            <motion.p className="max-w-full text-base text-gray-500 sm:max-w-[540px] sm:text-lg lg:mx-0">
                                 AI and robotics are transforming the world—but
                                 most kids aren't learning the skills to keep up.{' '}
                                 <span className="font-extrabold">
@@ -249,9 +248,9 @@ export function SubHero({ showDebug = false }: SubHeroProps) {
                     }
                 >
                     <motion.div className="flex w-full flex-col lg:flex-row">
-                        {/* Left Section - 40% */}
+                        {/* Left Section - 48% */}
                         <motion.div
-                            className="w-full pt-6 text-center lg:w-[40%] lg:p-12 lg:text-left"
+                            className="w-full text-left lg:w-[48%] lg:p-12"
                             style={
                                 showDebug
                                     ? {
@@ -262,10 +261,9 @@ export function SubHero({ showDebug = false }: SubHeroProps) {
                             }
                         >
                             <motion.p
-                                className="font-bold leading-tight tracking-wide text-blue-950"
+                                className="text-3xl font-bold leading-tight tracking-wide text-blue-950 sm:text-4xl md:text-5xl lg:text-[clamp(1.5rem,5vh,4rem)]"
                                 style={{ 
                                     fontFamily: 'Fredoka',
-                                    fontSize: 'clamp(1.5rem, 5vh, 4rem)'
                                 }}
                             >
                                 Every student
@@ -275,15 +273,15 @@ export function SubHero({ showDebug = false }: SubHeroProps) {
                                 <br />
                                 not just a learner.
                             </motion.p>
-                            <motion.p className="mx-auto mt-4 pb-6 max-w-full text-base text-gray-500 sm:max-w-[540px] sm:text-lg lg:mx-0 lg:pb-0">
+                            <motion.p className="mt-4 pb-8 max-w-full text-base text-gray-500 sm:max-w-[540px] sm:text-lg lg:mx-0 lg:pb-0">
                                 We spark curiosity and turn it into skills that
                                 inspire innovation and problem-solving.
                             </motion.p>
                         </motion.div>
 
-                        {/* Right Section - 60% */}
+                        {/* Right Section - 52% */}
                         <motion.div
-                            className="w-full p-6 lg:w-[60%] lg:p-12"
+                            className="w-full pt-6 text-right lg:w-[52%] lg:p-12 lg:text-left"
                             style={
                                 showDebug
                                     ? {
@@ -293,7 +291,7 @@ export function SubHero({ showDebug = false }: SubHeroProps) {
                                     : {}
                             }
                         >
-                            <motion.ul>
+                            <motion.ul className="text-left">
                                 {featuresData.map((feature, index) => (
                                     <FeatureCard
                                         key={index}
