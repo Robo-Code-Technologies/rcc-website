@@ -121,6 +121,7 @@ export function SubHero({ showDebug = false }: SubHeroProps) {
 
                 {/* Orange Section - 75% of viewport width */}
                 <motion.div
+                    id="future"
                     className="relative left-1/2 w-[75vw] -translate-x-1/2"
                     style={
                         showDebug
@@ -133,7 +134,7 @@ export function SubHero({ showDebug = false }: SubHeroProps) {
                 >
                     <motion.div className="flex w-full flex-col lg:flex-row">
                         {/* Left Section */}
-                        <motion.div 
+                        <motion.div
                             className="flex w-full items-center justify-center lg:w-[48%]"
                             style={
                                 showDebug
@@ -164,7 +165,7 @@ export function SubHero({ showDebug = false }: SubHeroProps) {
                             }
                         >
                             <motion.h1
-                                className="text-3xl font-bold leading-tight tracking-wide text-blue-950 sm:text-4xl md:text-5xl lg:text-[clamp(1.5rem,5vh,4rem)]"
+                                className="text-3xl leading-tight font-bold tracking-wide text-blue-950 sm:text-4xl md:text-5xl lg:text-[clamp(1.5rem,5vh,4rem)]"
                                 style={{
                                     fontFamily: 'Fredoka',
                                 }}
@@ -173,7 +174,7 @@ export function SubHero({ showDebug = false }: SubHeroProps) {
                                 reshaping the world.
                             </motion.h1>
                             <motion.h2
-                                className="mb-6 mt-3 text-xl font-semibold text-red-500 sm:text-2xl md:text-3xl"
+                                className="mt-3 mb-6 text-xl font-semibold text-red-500 sm:text-2xl md:text-3xl"
                                 style={{ fontFamily: 'Fredoka' }}
                             >
                                 Is your child ready for the future?
@@ -261,8 +262,8 @@ export function SubHero({ showDebug = false }: SubHeroProps) {
                             }
                         >
                             <motion.p
-                                className="text-3xl font-bold leading-tight tracking-wide text-blue-950 sm:text-4xl md:text-5xl lg:text-[clamp(1.5rem,5vh,4rem)]"
-                                style={{ 
+                                className="text-3xl leading-tight font-bold tracking-wide text-blue-950 sm:text-4xl md:text-5xl lg:text-[clamp(1.5rem,5vh,4rem)]"
+                                style={{
                                     fontFamily: 'Fredoka',
                                 }}
                             >
@@ -273,7 +274,7 @@ export function SubHero({ showDebug = false }: SubHeroProps) {
                                 <br />
                                 not just a learner.
                             </motion.p>
-                            <motion.p className="mt-4 pb-8 max-w-full text-base text-gray-500 sm:max-w-[540px] sm:text-lg lg:mx-0 lg:pb-0">
+                            <motion.p className="mt-4 max-w-full pb-8 text-base text-gray-500 sm:max-w-[540px] sm:text-lg lg:mx-0 lg:pb-0">
                                 We spark curiosity and turn it into skills that
                                 inspire innovation and problem-solving.
                             </motion.p>
@@ -291,7 +292,7 @@ export function SubHero({ showDebug = false }: SubHeroProps) {
                                     : {}
                             }
                         >
-                            <motion.ul className="text-left">
+                            <motion.ul className="pb-8 text-left sm:pb-10 md:pb-12 lg:pb-0">
                                 {featuresData.map((feature, index) => (
                                     <FeatureCard
                                         key={index}

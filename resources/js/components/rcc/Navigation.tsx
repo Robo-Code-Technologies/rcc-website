@@ -38,7 +38,7 @@ export function Navigation({
 
     const navItems = [
         { label: 'Home', id: 'home' },
-        { label: 'Future', id: 'future' },
+        { label: 'Problem', id: 'future' },
         { label: 'Product', id: 'product' },
         { label: 'Partners', id: 'partners' },
         { label: 'Team', id: 'team' },
@@ -46,10 +46,10 @@ export function Navigation({
     ];
 
     return (
-        <motion.nav className="fixed top-0 z-[200] w-full">
+        <motion.nav className="fixed top-0 z-[200] w-full max-w-full overflow-x-hidden">
             {/* Desktop Navigation */}
             <motion.div className="hidden w-full justify-center px-3 pt-3 md:flex md:px-4 md:pt-4 lg:px-6">
-                <motion.div 
+                <motion.div
                     className="flex items-center gap-2 rounded-2xl border px-3 py-2 shadow-2xl backdrop-blur-2xl md:gap-4 md:px-4 md:py-2.5 lg:gap-6 lg:px-6 lg:py-3"
                     initial={{ y: -20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
@@ -64,8 +64,8 @@ export function Navigation({
                             'inset 0 1px 0 rgba(255,255,255,0.1), 0 8px 32px rgba(0,0,0,0.12), 0 0 0 1px rgba(255,255,255,0.05)',
                     }}
                 >
-                    <motion.img 
-                        src={RoboCodeLogo} 
+                    <motion.img
+                        src={RoboCodeLogo}
                         className="mr-2 h-6 cursor-pointer md:mr-4 md:h-7 lg:mr-8 lg:h-8"
                         onClick={toggleDebug}
                         whileHover={{ scale: 1.05 }}
@@ -73,7 +73,7 @@ export function Navigation({
                         transition={{ duration: 0.2 }}
                         title="Toggle Debug Guides"
                     />
-                    
+
                     {navItems.map((item, index) => (
                         <motion.a
                             key={item.label}
@@ -87,12 +87,12 @@ export function Navigation({
                             {item.label}
                         </motion.a>
                     ))}
-                    
+
                     <motion.div className="ml-2 flex items-center gap-2 md:ml-4 md:gap-3 lg:ml-8">
-                        <motion.a 
+                        <motion.a
                             onClick={() => scrollToSection('contact')}
                             className="cursor-pointer rounded-full bg-gradient-to-r from-blue-500 to-purple-600 px-3 py-1.5 text-xs font-semibold text-white shadow-lg transition-all duration-300 hover:shadow-xl md:px-4 md:py-2 md:text-sm lg:px-6 lg:py-2.5"
-                            whileHover={{ 
+                            whileHover={{
                                 scale: 1.05,
                                 boxShadow:
                                     '0 20px 40px rgba(0,0,0,0.15), 0 0 20px rgba(99, 102, 241, 0.3)',
@@ -112,8 +112,8 @@ export function Navigation({
             </motion.div>
 
             {/* Mobile Navigation */}
-            <motion.div 
-                className="mx-2 mt-2 rounded-2xl border shadow-2xl backdrop-blur-2xl sm:mx-3 sm:mt-3 md:hidden"
+            <motion.div
+                className="mx-2 mt-2 max-w-[calc(100vw-1rem)] rounded-2xl border shadow-2xl backdrop-blur-2xl sm:mx-3 sm:max-w-[calc(100vw-1.5rem)] md:hidden"
                 style={{
                     background:
                         'linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.5) 100%)',
@@ -125,8 +125,8 @@ export function Navigation({
                 }}
             >
                 <div className="flex items-center justify-between px-4 py-3 sm:px-5 sm:py-3.5">
-                    <motion.img 
-                        src={RoboCodeLogo} 
+                    <motion.img
+                        src={RoboCodeLogo}
                         className="h-6 cursor-pointer sm:h-7"
                         onClick={toggleDebug}
                         whileHover={{ scale: 1.05 }}
@@ -169,7 +169,7 @@ export function Navigation({
                 </div>
 
                 {/* Mobile Menu Dropdown */}
-                <motion.div 
+                <motion.div
                     className={`${isMobileMenuOpen ? 'block' : 'hidden'} border-t border-white/20`}
                     initial={{ opacity: 0, y: -20 }}
                     animate={{
@@ -180,7 +180,7 @@ export function Navigation({
                 >
                     <motion.div className="flex flex-col space-y-1 px-3 py-3 sm:px-4 sm:py-4">
                         {navItems.map((item, index) => (
-                            <motion.a 
+                            <motion.a
                                 key={item.label}
                                 onClick={() => scrollToSection(item.id)}
                                 className="cursor-pointer rounded-xl px-3 py-2.5 text-sm text-white/95 transition-all duration-300 hover:bg-white/15 hover:text-white sm:px-4 sm:py-3 sm:text-base"
@@ -201,9 +201,9 @@ export function Navigation({
                                 {item.label}
                             </motion.a>
                         ))}
-                        
+
                         <div className="space-y-2 pt-2">
-                            <motion.a 
+                            <motion.a
                                 onClick={() => scrollToSection('contact')}
                                 className="block cursor-pointer rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 px-3 py-2.5 text-center text-sm font-semibold text-white shadow-lg sm:px-4 sm:py-3 sm:text-base"
                                 whileHover={{ scale: 1.02 }}

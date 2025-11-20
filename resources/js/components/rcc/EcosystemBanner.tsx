@@ -3,6 +3,9 @@ import { motion } from 'framer-motion';
 import Blob1 from '../../assets/blob_1.svg';
 import Blob2 from '../../assets/blob_2.svg';
 import Blob4 from '../../assets/blob_4.svg';
+import BgMobile from '../../assets/bg-mobile.svg';
+import BlobTopMobile from '../../assets/blob-top-mobile.svg';
+import BlobTopMobile2 from '../../assets/blob-top-mobile-2.svg';
 import EcosysBg from '../../assets/ecosys_bg_2.svg';
 import TopBlob from '../../assets/ecosys_top_blob.svg';
 import EmailIcon from '../../assets/email.png';
@@ -17,7 +20,29 @@ interface EcosystemBannerProps {
 
 export function EcosystemBanner({ showDebug = false }: EcosystemBannerProps) {
     return (
-        <motion.div className="relative w-full">
+        <motion.div className="relative w-full bg-white">
+            {/* Mobile: Top blobs - FIRST in vertical flow */}
+            <motion.div className="relative w-full lg:hidden">
+                {/* Blob 2 - Behind with animation */}
+                <motion.img
+                    src={BlobTopMobile2}
+                    alt="Top Blob 2"
+                    className="absolute top-0 left-0 z-0 block w-full"
+                    animate={{ y: [0, -10, 0] }}
+                    transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: 'easeInOut',
+                    }}
+                />
+                {/* Blob 1 - Front */}
+                <img
+                    src={BlobTopMobile}
+                    alt="Top Blob"
+                    className="relative z-10 block w-full"
+                />
+            </motion.div>
+
             {/* Blob backgrounds for desktop only */}
             <motion.div className="relative z-0 hidden w-full bg-white lg:block">
                 <motion.img
@@ -298,10 +323,19 @@ export function EcosystemBanner({ showDebug = false }: EcosystemBannerProps) {
                 </div>
             </div> */}
 
-            {/* New 75vw centered div for Contact Section */}
-            <div className="relative z-20 w-full bg-blue-950 px-4 py-16 sm:px-24 lg:absolute lg:top-[calc(50%+50px)] lg:bg-transparent lg:-translate-y-1/2 lg:px-60">
+            {/* New 75vw centered div for Contact Section - TOPMOST layer */}
+            <div className="relative z-50 w-full px-4 py-16 sm:px-24 lg:absolute lg:top-[calc(50%+50px)] lg:-translate-y-1/2 lg:px-60">
+                {/* Mobile background image */}
+                <div className="absolute inset-0 z-0 lg:hidden">
+                    <img
+                        src={BgMobile}
+                        alt="Background"
+                        className="h-full w-full object-cover"
+                    />
+                </div>
+                
                 <motion.div
-                    className="relative left-1/2 w-[75vw] -translate-x-1/2"
+                    className="relative z-10 left-1/2 w-[75vw] -translate-x-1/2"
                     style={
                         showDebug
                             ? {
@@ -423,7 +457,7 @@ export function EcosystemBanner({ showDebug = false }: EcosystemBannerProps) {
                             </div>
 
                             {/* Lower section - Links */}
-                            <div className="flex h-1/2 flex-col justify-start space-y-4 pt-6 pr-24">
+                            <div className="flex h-1/2 flex-col justify-start space-y-4 pt-6 pr-0 lg:pr-24">
                                 {/* Divider line */}
                                 <div className="h-px w-full bg-white opacity-30"></div>
 
@@ -432,16 +466,16 @@ export function EcosystemBanner({ showDebug = false }: EcosystemBannerProps) {
                                     href="https://www.linkedin.com/company/robo-code-club"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center gap-4 pt-4"
+                                    className="flex items-center gap-2 pt-4 sm:gap-4"
                                     whileHover={{ x: 5 }}
                                     transition={{ duration: 0.2 }}
                                 >
                                     <img
                                         src={LinkedinIcon}
                                         alt="LinkedIn"
-                                        className="h-12 w-12"
+                                        className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12"
                                     />
-                                    <span className="text-lg text-white">
+                                    <span className="text-sm text-white sm:text-base md:text-lg">
                                         linkedin.com/company/robo-code-club
                                     </span>
                                 </motion.a>
@@ -451,16 +485,16 @@ export function EcosystemBanner({ showDebug = false }: EcosystemBannerProps) {
                                     href="https://www.facebook.com/robocodeclubph"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="flex items-center gap-4"
+                                    className="flex items-center gap-2 sm:gap-4"
                                     whileHover={{ x: 5 }}
                                     transition={{ duration: 0.2 }}
                                 >
                                     <img
                                         src={FacebookIcon}
                                         alt="Facebook"
-                                        className="h-12 w-12"
+                                        className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12"
                                     />
-                                    <span className="text-lg text-white">
+                                    <span className="text-sm text-white sm:text-base md:text-lg">
                                         facebook.com/robocodeclubph
                                     </span>
                                 </motion.a>
@@ -468,16 +502,16 @@ export function EcosystemBanner({ showDebug = false }: EcosystemBannerProps) {
                                 {/* Phone */}
                                 <motion.a
                                     href="tel:+639980471693"
-                                    className="flex items-center gap-4"
+                                    className="flex items-center gap-2 sm:gap-4"
                                     whileHover={{ x: 5 }}
                                     transition={{ duration: 0.2 }}
                                 >
                                     <img
                                         src={PhoneIcon}
                                         alt="Phone"
-                                        className="h-12 w-12"
+                                        className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12"
                                     />
-                                    <span className="text-lg text-white">
+                                    <span className="text-sm text-white sm:text-base md:text-lg">
                                         +63 998 047 1693
                                     </span>
                                 </motion.a>
@@ -485,16 +519,16 @@ export function EcosystemBanner({ showDebug = false }: EcosystemBannerProps) {
                                 {/* Email */}
                                 <motion.a
                                     href="mailto:contact@robocodeclub.com"
-                                    className="flex items-center gap-4"
+                                    className="flex items-center gap-2 sm:gap-4"
                                     whileHover={{ x: 5 }}
                                     transition={{ duration: 0.2 }}
                                 >
                                     <img
                                         src={EmailIcon}
                                         alt="Email"
-                                        className="h-12 w-12"
+                                        className="h-8 w-8 sm:h-10 sm:w-10 md:h-12 md:w-12"
                                     />
-                                    <span className="text-lg text-white">
+                                    <span className="text-sm text-white sm:text-base md:text-lg">
                                         contact@robocodeclub.com
                                     </span>
                                 </motion.a>
@@ -515,7 +549,7 @@ export function EcosystemBanner({ showDebug = false }: EcosystemBannerProps) {
                         >
                             <h1
                                 id="contact"
-                                className="text-5xl font-bold text-white"
+                                className="text-3xl font-bold text-white sm:text-4xl md:text-5xl lg:text-[clamp(1.5rem,5vh,4rem)]"
                                 style={{
                                     fontFamily: 'Fredoka',
                                     scrollMarginTop: '0',
@@ -523,16 +557,16 @@ export function EcosystemBanner({ showDebug = false }: EcosystemBannerProps) {
                             >
                                 Contact Us
                             </h1>
-                            <p className="mt-4 text-xl text-white">
+                            <p className="mt-4 text-base text-white sm:text-lg">
                                 Join us in building curiosity that builds the future!
                             </p>
 
-                            <form className="mt-8 space-y-6">
+                            <form className="mt-6 space-y-4 sm:mt-8 sm:space-y-6">
                                 {/* Name Field */}
                                 <div>
                                     <label
                                         htmlFor="name"
-                                        className="mb-2 block text-lg font-semibold text-white"
+                                        className="mb-2 block text-sm font-semibold text-white sm:text-base md:text-lg"
                                     >
                                         Name
                                     </label>
@@ -541,7 +575,7 @@ export function EcosystemBanner({ showDebug = false }: EcosystemBannerProps) {
                                         id="name"
                                         name="name"
                                         placeholder="Enter Your Name Here"
-                                        className="w-full rounded-full border-none bg-white px-6 py-4 text-gray-700 placeholder-gray-400 shadow-md outline-none focus:ring-2 focus:ring-blue-400"
+                                        className="w-full rounded-full border-none bg-white px-4 py-3 text-sm text-gray-700 placeholder-gray-400 shadow-md outline-none focus:ring-2 focus:ring-blue-400 sm:px-6 sm:py-4 sm:text-base"
                                     />
                                 </div>
 
@@ -549,7 +583,7 @@ export function EcosystemBanner({ showDebug = false }: EcosystemBannerProps) {
                                 <div>
                                     <label
                                         htmlFor="email"
-                                        className="mb-2 block text-lg font-semibold text-white"
+                                        className="mb-2 block text-sm font-semibold text-white sm:text-base md:text-lg"
                                     >
                                         Email
                                     </label>
@@ -558,7 +592,7 @@ export function EcosystemBanner({ showDebug = false }: EcosystemBannerProps) {
                                         id="email"
                                         name="email"
                                         placeholder="Enter Your Email Address Here"
-                                        className="w-full rounded-full border-none bg-white px-6 py-4 text-gray-700 placeholder-gray-400 shadow-md outline-none focus:ring-2 focus:ring-blue-400"
+                                        className="w-full rounded-full border-none bg-white px-4 py-3 text-sm text-gray-700 placeholder-gray-400 shadow-md outline-none focus:ring-2 focus:ring-blue-400 sm:px-6 sm:py-4 sm:text-base"
                                     />
                                 </div>
 
@@ -566,7 +600,7 @@ export function EcosystemBanner({ showDebug = false }: EcosystemBannerProps) {
                                 <div>
                                     <label
                                         htmlFor="message"
-                                        className="mb-2 block text-lg font-semibold text-white"
+                                        className="mb-2 block text-sm font-semibold text-white sm:text-base md:text-lg"
                                     >
                                         Message
                                     </label>
@@ -575,7 +609,7 @@ export function EcosystemBanner({ showDebug = false }: EcosystemBannerProps) {
                                         name="message"
                                         rows={6}
                                         placeholder="Enter Your Message Here"
-                                        className="w-full resize-none rounded-3xl border-none bg-white px-6 py-4 text-gray-700 placeholder-gray-400 shadow-md outline-none focus:ring-2 focus:ring-blue-400"
+                                        className="w-full resize-none rounded-3xl border-none bg-white px-4 py-3 text-sm text-gray-700 placeholder-gray-400 shadow-md outline-none focus:ring-2 focus:ring-blue-400 sm:px-6 sm:py-4 sm:text-base"
                                     ></textarea>
                                 </div>
 
@@ -583,7 +617,7 @@ export function EcosystemBanner({ showDebug = false }: EcosystemBannerProps) {
                                 <div>
                                     <button
                                         type="submit"
-                                        className="rounded-full bg-gradient-to-r from-pink-500 to-red-500 px-12 py-4 text-lg font-semibold text-white shadow-lg transition-all duration-300 hover:from-pink-600 hover:to-red-600 hover:shadow-xl"
+                                        className="rounded-full bg-gradient-to-r from-pink-500 to-red-500 px-8 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:from-pink-600 hover:to-red-600 hover:shadow-xl sm:px-12 sm:py-4 sm:text-base md:text-lg"
                                     >
                                         Send Message
                                     </button>
