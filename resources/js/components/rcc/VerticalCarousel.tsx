@@ -7,6 +7,14 @@ import Path from '../../assets/ecosys_path.png';
 export function VerticalCarousel() {
     return (
         <div className="relative" style={{ width: '380px' }}>
+            {/* Top Gold line */}
+            <div
+                className="absolute left-1/2 top-0 z-10 h-5 w-[110%] -translate-x-1/2 rounded-full"
+                style={{
+                    background: 'linear-gradient(to bottom, #F4B860, #D69E4A)',
+                }}
+            ></div>
+
             {/* Parent div that crops/hides overflow */}
             <div
                 className="relative w-full overflow-hidden"
@@ -125,6 +133,14 @@ export function VerticalCarousel() {
                     </div>
                 </motion.div>
             </div>
+
+            {/* Bottom Gold line */}
+            <div
+                className="absolute bottom-0 left-1/2 z-10 h-5 w-[110%] -translate-x-1/2 rounded-full"
+                style={{
+                    background: 'linear-gradient(to bottom, #F4B860, #D69E4A)',
+                }}
+            ></div>
         </div>
     );
 }
