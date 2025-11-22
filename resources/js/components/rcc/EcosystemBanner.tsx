@@ -323,7 +323,7 @@ export function EcosystemBanner() {
             </div> */}
 
             {/* New 75vw centered div for Contact Section - TOPMOST layer */}
-            <div className="relative z-50 w-full px-4 py-16 sm:px-24 lg:absolute lg:top-[calc(50%+50px)] lg:-translate-y-1/2 lg:px-60">
+            <div className="relative z-50 w-full px-4 py-16 pb-24 sm:px-24 sm:pb-32 lg:absolute lg:top-[calc(50%+50px)] lg:-translate-y-1/2 lg:px-60 lg:pb-16">
                 {/* Mobile background image */}
                 <div className="absolute inset-0 z-0 lg:hidden">
                     <img
