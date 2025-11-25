@@ -176,7 +176,7 @@ export function EcosystemBanner() {
     return (
         <motion.div className="relative w-full bg-white">
             {/* Mobile: Top blobs - FIRST in vertical flow */}
-            <motion.div className="relative w-full lg:hidden">
+            <motion.div className="relative w-full xl:hidden">
                 {/* Blob 2 - Behind with animation */}
                 <motion.img
                     src={BlobTopMobile2}
@@ -198,7 +198,7 @@ export function EcosystemBanner() {
             </motion.div>
 
             {/* Blob backgrounds for desktop only */}
-            <motion.div className="relative z-0 hidden w-full bg-white lg:block">
+            <motion.div className="relative z-0 hidden w-full bg-white xl:block">
                 <motion.img
                     className="absolute -top-4 z-0 w-full object-cover"
                     src={TopBlob}
@@ -478,9 +478,9 @@ export function EcosystemBanner() {
             </div> */}
 
             {/* New 75vw centered div for Contact Section - TOPMOST layer */}
-            <div className="relative z-50 w-full px-4 py-16 pb-24 sm:px-24 sm:pb-32 lg:absolute lg:top-[calc(50%+50px)] lg:-translate-y-1/2 lg:px-60 lg:pb-16">
+            <div className="relative z-50 w-full px-4 py-16 pb-24 sm:px-24 sm:pb-32 xl:absolute xl:top-[calc(50%+50px)] xl:-translate-y-1/2 xl:px-60 xl:pb-16">
                 {/* Mobile background image */}
-                <div className="absolute inset-0 z-0 lg:hidden">
+                <div className="absolute inset-0 z-0 xl:hidden">
                     <img
                         src={BgMobile}
                         alt="Background"
@@ -491,10 +491,10 @@ export function EcosystemBanner() {
                 <motion.div
                     className="relative z-10 left-1/2 w-[75vw] -translate-x-1/2"
                 >
-                    <motion.div className="flex w-full flex-col lg:flex-row">
+                    <motion.div className="flex w-full flex-col xl:flex-row">
                         {/* Left Section - 50% Mascot and Links */}
                         <motion.div
-                            className="order-2 flex w-full flex-col lg:order-none lg:w-1/2"
+                            className="order-2 flex w-full flex-col xl:order-none xl:w-1/2"
                         >
                             {/* Upper section - Mascot */}
                             <div className="relative h-1/2 overflow-hidden pr-24">
@@ -595,7 +595,7 @@ export function EcosystemBanner() {
                             </div>
 
                             {/* Lower section - Links */}
-                            <div className="flex h-1/2 flex-col justify-start space-y-4 pt-6 pr-0 lg:pr-24">
+                            <div className="flex h-1/2 flex-col justify-start space-y-4 pt-6 pr-0 xl:pr-24">
                                 {/* Divider line */}
                                 <div className="h-px w-full bg-white opacity-30"></div>
 
@@ -675,7 +675,7 @@ export function EcosystemBanner() {
 
                         {/* Right Section - 50% Contact Form */}
                         <motion.div
-                            className="order-1 w-full lg:order-none lg:w-1/2"
+                            className="order-1 w-full xl:order-none xl:w-1/2"
                         >
                             <h1
                                 id="contact"
