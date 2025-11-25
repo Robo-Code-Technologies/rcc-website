@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { useState } from 'react';
 
 import Blob1 from '../../assets/blob_1.svg';
 import Blob2 from '../../assets/blob_2.svg';
@@ -18,6 +19,160 @@ interface EcosystemBannerProps {
 }
 
 export function EcosystemBanner() {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: '',
+    });
+    const [errors, setErrors] = useState({
+        name: '',
+        email: '',
+        message: '',
+    });
+    const [touched, setTouched] = useState({
+        name: false,
+        email: false,
+        message: false,
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
+    // Email validation regex
+    const isValidEmail = (email: string) => {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    };
+
+    // Validate individual field
+    const validateField = (name: string, value: string): string => {
+        switch (name) {
+            case 'name':
+                if (!value.trim()) {
+                    return 'Please enter your name';
+                }
+                if (value.trim().length < 2) {
+                    return 'Name must be at least 2 characters long';
+                }
+                return '';
+            case 'email':
+                if (!value.trim()) {
+                    return 'Please enter your email address';
+                }
+                if (!isValidEmail(value)) {
+                    return 'Please enter a valid email address (e.g., [email protected])';
+                }
+                return '';
+            case 'message':
+                if (!value.trim()) {
+                    return 'Please enter a message';
+                }
+                if (value.trim().length < 10) {
+                    return 'Message must be at least 10 characters long';
+                }
+                return '';
+            default:
+                return '';
+        }
+    };
+
+    // Validate all fields
+    const validateForm = (): boolean => {
+        const newErrors = {
+            name: validateField('name', formData.name),
+            email: validateField('email', formData.email),
+            message: validateField('message', formData.message),
+        };
+        
+        setErrors(newErrors);
+        setTouched({ name: true, email: true, message: true });
+        
+        return !newErrors.name && !newErrors.email && !newErrors.message;
+    };
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value,
+        }));
+
+        // Clear error when user starts typing (only if field was touched)
+        if (touched[name as keyof typeof touched]) {
+            setErrors(prev => ({
+                ...prev,
+                [name]: validateField(name, value),
+            }));
+        }
+    };
+
+    const handleBlur = (e: React.FocusEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setTouched(prev => ({
+            ...prev,
+            [name]: true,
+        }));
+        
+        // Only validate on blur if already touched (user tried to submit)
+        if (touched[name as keyof typeof touched]) {
+            setErrors(prev => ({
+                ...prev,
+                [name]: validateField(name, value),
+            }));
+        }
+    };
+
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        
+        // Validate form before submitting
+        if (!validateForm()) {
+            return;
+        }
+
+        setIsSubmitting(true);
+        setSubmitStatus('idle');
+
+        try {
+            const response = await fetch('https://n8n.robocodeclub.com/webhook/92ae8fc7-ec77-4967-879e-7c81c8442f6e', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            if (response.ok) {
+                setSubmitStatus('success');
+                // Clear form after successful submission
+                setFormData({
+                    name: '',
+                    email: '',
+                    message: '',
+                });
+                setErrors({
+                    name: '',
+                    email: '',
+                    message: '',
+                });
+                setTouched({
+                    name: false,
+                    email: false,
+                    message: false,
+                });
+                // Reset success message after 5 seconds
+                setTimeout(() => setSubmitStatus('idle'), 5000);
+            } else {
+                setSubmitStatus('error');
+                setTimeout(() => setSubmitStatus('idle'), 5000);
+            }
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            setSubmitStatus('error');
+            setTimeout(() => setSubmitStatus('idle'), 5000);
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
     return (
         <motion.div className="relative w-full bg-white">
             {/* Mobile: Top blobs - FIRST in vertical flow */}
@@ -536,7 +691,7 @@ export function EcosystemBanner() {
                                 Join us in building curiosity that builds the future!
                             </p>
 
-                            <form className="mt-6 space-y-4 sm:mt-8 sm:space-y-6">
+                            <form className="mt-6 space-y-4 sm:mt-8 sm:space-y-6" onSubmit={handleSubmit}>
                                 {/* Name Field */}
                                 <div>
                                     <label
@@ -549,9 +704,27 @@ export function EcosystemBanner() {
                                         type="text"
                                         id="name"
                                         name="name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
                                         placeholder="Enter Your Name Here"
-                                        className="w-full rounded-full border-none bg-white px-4 py-3 text-sm text-gray-700 placeholder-gray-400 shadow-md outline-none focus:ring-2 focus:ring-blue-400 sm:px-6 sm:py-4 sm:text-base"
+                                        className={`w-full rounded-full border-2 bg-white px-4 py-3 text-sm text-gray-700 placeholder-gray-400 shadow-md outline-none transition-colors sm:px-6 sm:py-4 sm:text-base ${
+                                            touched.name && errors.name
+                                                ? 'border-red-500 focus:ring-2 focus:ring-red-400'
+                                                : 'border-transparent focus:ring-2 focus:ring-blue-400'
+                                        }`}
+                                        aria-invalid={touched.name && errors.name ? 'true' : 'false'}
+                                        aria-describedby={touched.name && errors.name ? 'name-error' : undefined}
                                     />
+                                    {touched.name && errors.name && (
+                                        <p
+                                            id="name-error"
+                                            className="mt-2 text-sm text-red-200 sm:text-base"
+                                            role="alert"
+                                        >
+                                            ⚠ {errors.name}
+                                        </p>
+                                    )}
                                 </div>
 
                                 {/* Email Field */}
@@ -566,9 +739,27 @@ export function EcosystemBanner() {
                                         type="email"
                                         id="email"
                                         name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
                                         placeholder="Enter Your Email Address Here"
-                                        className="w-full rounded-full border-none bg-white px-4 py-3 text-sm text-gray-700 placeholder-gray-400 shadow-md outline-none focus:ring-2 focus:ring-blue-400 sm:px-6 sm:py-4 sm:text-base"
+                                        className={`w-full rounded-full border-2 bg-white px-4 py-3 text-sm text-gray-700 placeholder-gray-400 shadow-md outline-none transition-colors sm:px-6 sm:py-4 sm:text-base ${
+                                            touched.email && errors.email
+                                                ? 'border-red-500 focus:ring-2 focus:ring-red-400'
+                                                : 'border-transparent focus:ring-2 focus:ring-blue-400'
+                                        }`}
+                                        aria-invalid={touched.email && errors.email ? 'true' : 'false'}
+                                        aria-describedby={touched.email && errors.email ? 'email-error' : undefined}
                                     />
+                                    {touched.email && errors.email && (
+                                        <p
+                                            id="email-error"
+                                            className="mt-2 text-sm text-red-200 sm:text-base"
+                                            role="alert"
+                                        >
+                                            ⚠ {errors.email}
+                                        </p>
+                                    )}
                                 </div>
 
                                 {/* Message Field */}
@@ -583,19 +774,48 @@ export function EcosystemBanner() {
                                         id="message"
                                         name="message"
                                         rows={6}
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        onBlur={handleBlur}
                                         placeholder="Enter Your Message Here"
-                                        className="w-full resize-none rounded-3xl border-none bg-white px-4 py-3 text-sm text-gray-700 placeholder-gray-400 shadow-md outline-none focus:ring-2 focus:ring-blue-400 sm:px-6 sm:py-4 sm:text-base"
+                                        className={`w-full resize-none rounded-3xl border-2 bg-white px-4 py-3 text-sm text-gray-700 placeholder-gray-400 shadow-md outline-none transition-colors sm:px-6 sm:py-4 sm:text-base ${
+                                            touched.message && errors.message
+                                                ? 'border-red-500 focus:ring-2 focus:ring-red-400'
+                                                : 'border-transparent focus:ring-2 focus:ring-blue-400'
+                                        }`}
+                                        aria-invalid={touched.message && errors.message ? 'true' : 'false'}
+                                        aria-describedby={touched.message && errors.message ? 'message-error' : undefined}
                                     ></textarea>
+                                    {touched.message && errors.message && (
+                                        <p
+                                            id="message-error"
+                                            className="mt-2 text-sm text-red-200 sm:text-base"
+                                            role="alert"
+                                        >
+                                            ⚠ {errors.message}
+                                        </p>
+                                    )}
                                 </div>
 
                                 {/* Submit Button */}
                                 <div>
                                     <button
                                         type="submit"
-                                        className="rounded-full bg-gradient-to-r from-pink-500 to-red-500 px-8 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:from-pink-600 hover:to-red-600 hover:shadow-xl sm:px-12 sm:py-4 sm:text-base md:text-lg"
+                                        disabled={isSubmitting}
+                                        className="rounded-full bg-gradient-to-r from-pink-500 to-red-500 px-8 py-3 text-sm font-semibold text-white shadow-lg transition-all duration-300 hover:from-pink-600 hover:to-red-600 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-50 sm:px-12 sm:py-4 sm:text-base md:text-lg"
                                     >
-                                        Send Message
+                                        {isSubmitting ? 'Sending...' : 'Send Message'}
                                     </button>
+                                    {submitStatus === 'success' && (
+                                        <p className="mt-2 text-sm text-green-300 sm:text-base" role="status">
+                                            ✓ Message Sent! We'll get back to you soon.
+                                        </p>
+                                    )}
+                                    {submitStatus === 'error' && (
+                                        <p className="mt-2 text-sm text-red-200 sm:text-base" role="alert">
+                                            ⚠ Failed to send message. Please try again.
+                                        </p>
+                                    )}
                                 </div>
                             </form>
                         </motion.div>
