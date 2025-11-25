@@ -137,7 +137,7 @@ export function SubHero() {
 
                         {/* Right Section */}
                         <motion.div
-                            className="w-full pt-6 text-left sm:p-8 md:p-10 lg:w-[52%] lg:p-12"
+                            className="w-full pt-6 text-center sm:p-8 md:p-10 lg:w-[52%] lg:p-12 lg:text-left"
                         >
                             <motion.h1
                                 className="text-3xl leading-tight font-bold tracking-wide text-blue-950 sm:text-4xl md:text-5xl lg:text-[clamp(1.5rem,5vh,4rem)]"
@@ -154,7 +154,7 @@ export function SubHero() {
                             >
                                 Is your child ready for the future?
                             </motion.h2>
-                            <motion.p className="max-w-full text-base text-gray-500 sm:max-w-[540px] sm:text-lg lg:mx-0">
+                            <motion.p className="mx-auto max-w-full text-base text-gray-500 sm:max-w-[540px] sm:text-lg lg:mx-0">
                                 AI and robotics are transforming the world—but
                                 most kids aren't learning the skills to keep up.{' '}
                                 <span className="font-extrabold">
@@ -218,7 +218,7 @@ export function SubHero() {
                     <motion.div className="flex w-full flex-col lg:flex-row">
                         {/* Left Section - 48% */}
                         <motion.div
-                            className="w-full text-left lg:w-[48%] lg:p-12"
+                            className="w-full text-center lg:w-[48%] lg:p-12 lg:text-left"
                         >
                             <motion.p
                                 className="text-3xl leading-tight font-bold tracking-wide text-blue-950 sm:text-4xl md:text-5xl lg:text-[clamp(1.5rem,5vh,4rem)]"
@@ -233,7 +233,7 @@ export function SubHero() {
                                 <br />
                                 not just a learner.
                             </motion.p>
-                            <motion.p className="mt-4 max-w-full pb-8 text-base text-gray-500 sm:max-w-[540px] sm:text-lg lg:mx-0 lg:pb-0">
+                            <motion.p className="mx-auto mt-4 max-w-full pb-8 text-base text-gray-500 sm:max-w-[540px] sm:text-lg lg:mx-0 lg:pb-0">
                                 We spark curiosity and turn it into skills that
                                 inspire innovation and problem-solving.
                             </motion.p>
